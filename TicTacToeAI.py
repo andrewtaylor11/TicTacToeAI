@@ -60,7 +60,7 @@ def get_winner(old_board):
         return True 
     return False
 
-
+# This is just old test code
 #board = new_board()
 #board[0][0] = 'X'
 #board[2][2] = 'X'
