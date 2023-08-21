@@ -1,8 +1,8 @@
-#Represent the board
+# Represent the board
 def new_board():
         return [["~", "~", "~"], ["~", "~", "~"], ["~", "~", "~"]]
 
-#Render the board
+# Render the board
 def render(my_board):
         print('  0 1 2')
         print('  ------')
