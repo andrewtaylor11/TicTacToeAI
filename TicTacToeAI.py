@@ -10,25 +10,25 @@ def render(my_board):
         print('1|'+ str(my_board[0][1]) + ' ' + str(my_board[1][1]) + '  ' + str(my_board[2][1]))
         print('2|'+ str(my_board[0][2]) + ' ' + str(my_board[1][2]) + '  ' + str(my_board[2][2]))
 
-#Determine which player is to go
+# Determine which player is to go
 def player(counter):
      if counter % 2 == 0:
           return 'X'
      else:
           return 'Y'
      
-#Ask the player for input
+# Ask the player for input
 def get_move():
     x_coord = int(input("What is the X coordinate of your move?"))
     y_coord = int(input("What is the Y coordinate of your move?"))
     return x_coord, y_coord
 
-#Make a move
+# Make a move
 def make_move(old_board, move_coordinates, player):
     old_board[move_coordinates[0]][move_coordinates[1]] = player
 
     
-#Check if there is a winner
+# Check if there is a winner
 def get_winner(old_board):
     # check the columns
     for i in range(3):
