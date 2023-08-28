@@ -1,8 +1,8 @@
-# Represent the board
+#Represent the board
 def new_board():
         return [["~", "~", "~"], ["~", "~", "~"], ["~", "~", "~"]]
 
-# Render the board
+#Render the board
 def render(my_board):
         print('  0 1 2')
         print('  ------')
@@ -10,26 +10,26 @@ def render(my_board):
         print('1|'+ str(my_board[0][1]) + ' ' + str(my_board[1][1]) + '  ' + str(my_board[2][1]))
         print('2|'+ str(my_board[0][2]) + ' ' + str(my_board[1][2]) + '  ' + str(my_board[2][2]))
 
-# Determine which player is to go
+#Determine which player is to go
 def player(counter):
      if counter % 2 == 0:
           return 'X'
      else:
           return 'Y'
      
-# Ask the player for input
+#Ask the player for input
 def get_move():
     x_coord = int(input("What is the X coordinate of your move?"))
     y_coord = int(input("What is the Y coordinate of your move?"))
     return x_coord, y_coord
 
-# Make a move
+#Make a move
 def make_move(old_board, move_coordinates, player):
     old_board[move_coordinates[0]][move_coordinates[1]] = player
 
     
-# Check if there is a winner
-def get_winner(old_board):
+#Check if there is a winner
+def get_winner(old_board, turn):
     # check the columns
     for i in range(3):
             if old_board[i][0] ==  'X' and old_board[i][1] ==  'X' and old_board[i][2] == 'X':
@@ -58,9 +58,12 @@ def get_winner(old_board):
     if old_board[0][2] ==  'Y' and old_board[1][1] ==  'Y' and old_board[2][0] == 'Y':
         print("Player Y wins!")
         return True 
+    if turn == 8:
+        print("It's a draw!")
+        return True
     return False
 
-# This is just old test code
+
 #board = new_board()
 #board[0][0] = 'X'
 #board[2][2] = 'X'
@@ -78,7 +81,7 @@ def main():
      game_turn = 0
      board = new_board()
      render(board)
-     while not get_winner(board):
+     while not get_winner(board, game_turn):
           move_coords = get_move()
           make_move(board, move_coords, player(game_turn))
           render(board)
